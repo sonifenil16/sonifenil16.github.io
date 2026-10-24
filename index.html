@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fenil Soni</title>
+<meta name="description" content="Fenil Soni, Software Engineer working on ML infrastructure and performance. Previously on-device LLMs, ARM kernels and real-time vision for UAVs.">
+<meta property="og:title" content="Fenil Soni">
+<meta property="og:description" content="ML infrastructure & performance engineer. On-device LLMs, low-level kernels, edge AI and autonomous systems.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #fbfaf7;
+    --surface: #ffffff;
+    --text: #1b1d21;
+    --muted: #5d636e;
+    --faint: #8a909a;
+    --line: #e6e3dc;
+    --accent: #1f6feb;
+    --accent-soft: #e8f0fe;
+    --chip: #f1efe9;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0f1115;
+      --surface: #161a20;
+      --text: #e7e9ee;
+      --muted: #a2a8b3;
+      --faint: #737a86;
+      --line: #262b33;
+      --accent: #6ea8ff;
+      --accent-soft: #1a2638;
+      --chip: #1d222a;
+    }
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font: 16px/1.65 Inter, system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 0 20px; }
+
+  nav {
+    position: sticky; top: 0; z-index: 10;
+    background: color-mix(in srgb, var(--bg) 85%, transparent);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line);
+  }
+  nav .wrap { display: flex; justify-content: space-between; align-items: center; height: 56px; }
+  nav .brand { font-weight: 600; color: var(--text); }
+  nav ul { display: flex; gap: 20px; list-style: none; margin: 0; padding: 0; font-size: 14px; }
+  nav ul a { color: var(--muted); }
+  nav ul a:hover { color: var(--text); text-decoration: none; }
+
+  header { padding: 72px 0 40px; }
+  .eyebrow { font: 500 13px/1 "JetBrains Mono", monospace; color: var(--accent); letter-spacing: .02em; }
+  h1 { font-size: clamp(36px, 7vw, 52px); line-height: 1.1; margin: 14px 0 16px; letter-spacing: -0.02em; }
+  .lede { font-size: 18px; color: var(--muted); max-width: 600px; margin: 0; }
+  .links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 9px 16px; border-radius: 8px; font-size: 14px; font-weight: 500;
+    border: 1px solid var(--line); color: var(--text); background: var(--surface);
+  }
+  .btn:hover { border-color: var(--accent); text-decoration: none; }
+  .btn.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+  .btn svg { width: 16px; height: 16px; fill: currentColor; }
+
+  section { padding: 40px 0; border-top: 1px solid var(--line); }
+  h2 { font: 500 13px/1 "JetBrains Mono", monospace; text-transform: uppercase; letter-spacing: .08em; color: var(--faint); margin: 0 0 24px; }
+  p { margin: 0 0 14px; }
+
+  .job { display: grid; grid-template-columns: 150px 1fr; gap: 6px 24px; padding: 18px 0; }
+  .job + .job { border-top: 1px dashed var(--line); }
+  .when { font: 13px/1.6 "JetBrains Mono", monospace; color: var(--faint); padding-top: 3px; }
+  .role { font-weight: 600; }
+  .org { color: var(--muted); }
+  .job ul { margin: 8px 0 0; padding-left: 18px; color: var(--muted); }
+  .job li { margin: 4px 0; }
+  .job li b { color: var(--text); font-weight: 500; }
+
+  .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+  .card {
+    background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 18px;
+  }
+  .card h3 { font-size: 15px; margin: 0 0 6px; }
+  .card p { font-size: 14px; color: var(--muted); margin: 0 0 12px; }
+  .metric { font: 500 12px/1 "JetBrains Mono", monospace; color: var(--accent); background: var(--accent-soft); padding: 4px 8px; border-radius: 6px; display: inline-block; }
+
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+  .chips span { background: var(--chip); border-radius: 6px; padding: 4px 10px; font-size: 13px; color: var(--muted); }
+  .skillrow { display: grid; grid-template-columns: 150px 1fr; gap: 24px; padding: 10px 0; }
+  .skillrow .label { font-size: 14px; color: var(--faint); padding-top: 3px; }
+
+  footer { padding: 40px 0 60px; border-top: 1px solid var(--line); color: var(--faint); font-size: 14px; }
+  footer .links { margin-top: 12px; }
+
+  @media (max-width: 640px) {
+    nav ul { display: none; }
+    header { padding: 48px 0 32px; }
+    .job, .skillrow { grid-template-columns: 1fr; gap: 2px; }
+    .grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="brand" href="#">Fenil Soni</a>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#skills">Skills</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main class="wrap">
+  <header>
+    <div class="eyebrow">ML infrastructure · performance · edge AI</div>
+    <h1>Fenil Soni</h1>
+    <p class="lede">Software Engineer at Google, working on ML infrastructure and performance. Before that I ran LLMs on phones, wrote ARM and GPU kernels, and built real-time vision systems for drones.</p>
+    <div class="links">
+      <a class="btn primary" href="https://www.linkedin.com/in/sonifenil16" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
+        LinkedIn
+      </a>
+      <a class="btn" href="https://github.com/sonifenil16" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path d="M12 .3a12 12 0 0 0-3.8 23.38c.6.12.83-.26.83-.57v-2c-3.34.72-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.08-.74.09-.73.09-.73 1.2.09 1.83 1.24 1.83 1.24 1.07 1.83 2.8 1.3 3.49 1 .1-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.14-.3-.54-1.52.1-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.28-1.55 3.29-1.23 3.29-1.23.64 1.66.24 2.88.12 3.18a4.65 4.65 0 0 1 1.23 3.22c0 4.61-2.8 5.63-5.48 5.92.42.36.81 1.1.81 2.22v3.29c0 .32.21.69.82.57A12 12 0 0 0 12 .3"/></svg>
+        GitHub
+      </a>
+      <a class="btn" href="mailto:fenil1608@gmail.com">
+        <svg viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4.24-8 5-8-5V6l8 5 8-5v2.24z"/></svg>
+        Email
+      </a>
+    </div>
+  </header>
+
+  <section id="about">
+    <h2>About</h2>
+    <p>I like making models run fast on real hardware. My path went from aerospace engineering at IIT Bombay, where I led a 50-person Hyperloop team, to embedded systems and computer vision for UAVs, to on-device LLM runtimes and hand-tuned kernels. Now I work on ML infrastructure at Google.</p>
+    <p>Most of my work sits where models meet hardware: memory layout, operator coverage, quantization, kernels, and the APIs that hide all of it from the people building on top.</p>
+  </section>
+
+  <section id="experience">
+    <h2>Experience</h2>
+
+    <div class="job">
+      <div class="when">Jul 2025 – now</div>
+      <div>
+        <div class="role">Software Engineer III</div>
+        <div class="org">Google · Bengaluru</div>
+        <ul>
+          <li>ML infrastructure and performance optimization.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="job">
+      <div class="when">Aug 2024 – Jul 2025</div>
+      <div>
+        <div class="role">Associate Staff Engineer</div>
+        <div class="org">Samsung Research · Bengaluru</div>
+        <ul>
+          <li>Designed an API layer over the <b>Exynos Neural Network (ENN)</b> framework to run <b>sharded LLMs on-device</b>, hiding execution graphs, tensor bindings and memory management from app developers.</li>
+          <li>Built a <b>shared tensor-buffer pool</b> that links inputs and outputs across shards, cutting allocation overhead and improving data locality.</li>
+          <li>Added missing operators (GridSample, LayerNorm, GroupNorm, DepthwiseConv) and tuned them with <b>ARM NEON</b> for <b>2–3× speedups</b>.</li>
+          <li>Enabled GEMM and Conv2D with <b>ARM SME</b> on ARMv9, cutting CPU time by <b>up to 90%</b>; wrote <b>OpenCL</b> kernels for GPU op coverage.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="job">
+      <div class="when">Oct 2023 – Aug 2024</div>
+      <div>
+        <div class="role">Technical Lead</div>
+        <div class="org">HCLTech · Bengaluru</div>
+        <ul>
+          <li>Led the team building onboard compute for UAVs: architecture, releases and test planning.</li>
+          <li>Moved object tracking to a <b>NanoTrack</b> Siamese network in a GStreamer/DeepStream plugin on Jetson, <b>+50% tracking FPS</b>; worked on its CUDA path.</li>
+          <li>Trained DetectNet v2 on VisDrone (<b>70% mAP</b>), then INT8-quantized it and deployed via ONNX and <b>TensorRT</b> on the Jetson DLA.</li>
+          <li>Led the autonomous landing module: AprilTag pose estimation (<b>85% accuracy from 20 m</b>) fused with LIDAR and GPS, validated in ROS/Gazebo and flight tests.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="job">
+      <div class="when">Aug 2021 – Sep 2023</div>
+      <div>
+        <div class="role">Senior Software Engineer</div>
+        <div class="org">HCLTech · Bengaluru</div>
+        <ul>
+          <li>Built a GStreamer <b>video stabilization</b> plugin (optical flow + Kalman filter) that cut jitter by <b>65%</b>.</li>
+          <li>Deployed YOLOv5 on the i.MX 8M Plus NPU with NNStreamer; built a custom <b>Yocto</b> Linux image <b>70% smaller</b> with a cross-compile CI pipeline.</li>
+          <li>Worked on real-time RTSP streaming with hardware H.264/HEVC encoding, plus camera and gimbal control for autonomous target following.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="job">
+      <div class="when">2019 – 2021</div>
+      <div>
+        <div class="role">Team Lead, Hyperloop IIT Bombay</div>
+        <div class="org">Team Veloce · Mumbai</div>
+        <ul>
+          <li>Led a 50+ student team building a transonic pod prototype; worked on sensor fusion for pod localization and helped secure INR 1.5M in funding.</li>
+          <li>Also a teaching assistant for NPTEL's <i>Introduction to Launch Vehicle Design and Analysis</i>.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="work">
+    <h2>Selected work</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>On-device LLM runtime</h3>
+        <p>Middleware for running sharded LLMs on mobile NPUs, with a shared buffer pool across shards.</p>
+        <span class="metric">LLMs · NPU · C++</span>
+      </div>
+      <div class="card">
+        <h3>ARM NEON / SME kernels</h3>
+        <p>Hand-written intrinsics for normalization, sampling and matrix ops on ARMv9 CPUs.</p>
+        <span class="metric">up to 90% faster</span>
+      </div>
+      <div class="card">
+        <h3>UAV vision stack</h3>
+        <p>Detection, tracking, stabilization and streaming pipelines on Jetson and i.MX 8M.</p>
+        <span class="metric">+50% tracking FPS</span>
+      </div>
+      <div class="card">
+        <h3>Autonomous landing</h3>
+        <p>Fiducial-marker pose estimation fused with LIDAR and GPS to land on moving vehicles.</p>
+        <span class="metric">85% @ 20 m</span>
+      </div>
+      <div class="card">
+        <h3>Hybrid UAV dynamics</h3>
+        <p>Master's thesis: dynamic models and linear and nonlinear controllers for hybrid UAV transitions.</p>
+        <span class="metric">MATLAB · Simulink</span>
+      </div>
+      <div class="card">
+        <h3>Learning CUDA</h3>
+        <p>Notes and exercises from working through GPU programming.</p>
+        <a class="metric" href="https://github.com/sonifenil16/CUDA" target="_blank" rel="noopener">github →</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <h2>Skills</h2>
+    <div class="skillrow">
+      <div class="label">Languages</div>
+      <div class="chips"><span>C++</span><span>Python</span><span>CUDA</span><span>OpenCL</span><span>MATLAB</span></div>
+    </div>
+    <div class="skillrow">
+      <div class="label">ML & inference</div>
+      <div class="chips"><span>TensorFlow</span><span>Keras</span><span>ONNX</span><span>TensorRT</span><span>DeepStream</span><span>Quantization</span></div>
+    </div>
+    <div class="skillrow">
+      <div class="label">Performance</div>
+      <div class="chips"><span>ARM NEON</span><span>ARM SME</span><span>GPU kernels</span><span>Memory planning</span><span>Profiling</span></div>
+    </div>
+    <div class="skillrow">
+      <div class="label">Systems</div>
+      <div class="chips"><span>Linux</span><span>Yocto</span><span>GStreamer</span><span>ROS</span><span>Docker</span><span>OpenCV</span></div>
+    </div>
+  </section>
+
+  <section id="education">
+    <h2>Education</h2>
+    <div class="job">
+      <div class="when">2019 – 2021</div>
+      <div><div class="role">M.Tech, Aerospace Engineering</div><div class="org">Indian Institute of Technology Bombay</div></div>
+    </div>
+    <div class="job">
+      <div class="when">2015 – 2019</div>
+      <div><div class="role">B.E., Aeronautical Engineering</div><div class="org">Sathyabama Institute of Science &amp; Technology, Chennai</div></div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    Fenil Soni · Bengaluru, India
+  </div>
+</footer>
+
+</body>
+</html>
